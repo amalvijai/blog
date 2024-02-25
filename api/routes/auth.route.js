@@ -1,9 +1,9 @@
 import express  from 'express'
-import { singup } from "../controllers/auth.controller.js";
+import { singin, singup } from "../controllers/auth.controller.js";
  const router = express.Router();
 
  router.post('/singup', singup);
- router.post('/singin', singup);
+ router.post('/singin', singin);
 
  export default router;
 //  singup
