@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Label, TextInput,Button, Alert, Spinner } from 'flowbite-react';
 import { Link,useNavigate } from 'react-router-dom'
+import { OAuth } from '../components/OAuth';
+
+
 
 export default function Singup() {
   const [formData, setFormData] =useState({});
@@ -18,7 +21,7 @@ export default function Singup() {
   try{
     setLoading(true);
     setErrorMessage(null);
-     const res = await fetch('api/auth/singup' ,{
+     const res = await fetch('api/auth/singup',{
       method:'POST',
       headers: {'Content-Type': 'application/json'},
       body:JSON.stringify(formData)
@@ -64,7 +67,7 @@ export default function Singup() {
           <div >
           <Label value='Your email'/>
           <TextInput 
-          type='text'
+          type='email'
           placeholder='dev@comapny.com'
           id='email' onChange={handleChange} />
       
@@ -88,6 +91,8 @@ export default function Singup() {
               ): 'Sing Up'
             }
           </Button>
+          <OAuth/>
+          
         </form>
         <div className='flex gap-2 text-sm mt-5'>
           <span>Have an account ?</span>
